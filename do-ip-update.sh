@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IP_ADDRESS=$(curl -s "https://icanhazip.com")
+IP_ADDRESS=$(curl -s "https://icanhazip.com/s")
 
 curl -s -X PUT \
     -H "Content-Type: application/json" \
