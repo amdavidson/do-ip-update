@@ -1,11 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
-IP_ADDRESS=$(curl -s "https://icanhazip.com/s")
+PAYLOAD='{"data":"'$(curl -s "https://icanhazip.com/s")'"}'
+
+echo $PAYLOAD
 
 curl -s -X PUT \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $DO_API_KEY" \
-    -D '{"data":"$IP_ADDRESS"}' \
+    -d $PAYLOAD \
     "https://api.digitalocean.com/v2/domains/$DO_DOMAIN/records/$DO_RECORD_ID"
 
 
