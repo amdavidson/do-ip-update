@@ -15,3 +15,5 @@ Run the script as follows
       DO_DOMAIN="example.com" \
       do-ip-update.sh
 
+You should see a JSON of the payload that was sent to DO and a result
+with a `200 OK` response code and a JSON struct of the record data.

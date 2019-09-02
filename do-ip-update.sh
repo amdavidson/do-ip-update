@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 OLD_IP=`cat current_ip.txt`
 IP_ADDRESS=$(curl -s "https://icanhazip.com")
@@ -16,4 +16,3 @@ if [ "$IP_ADDRESS" != "$OLD_IP" ]; then
         echo $IP_ADDRESS > current_ip.txt
     fi
 fi
-   
