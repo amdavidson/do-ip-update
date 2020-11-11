@@ -8,12 +8,11 @@ DNS hosting from DO.
 
 ## Running directly
 
-Run the script as follows
+Put these lines into `$XDG_CONFIG_HOME/do-ip-update/do-ip-update.conf`:
+    DO_API_KEY="asdfnwvoqwenvw2ef" \
+    DO_RECORD_ID="123841209387" \
+    DO_DOMAIN="example.com"
 
-    $ DO_API_KEY="asdfnwvoqwenvw2ef" \
-      DO_RECORD_ID="123841209387" \
-      DO_DOMAIN="example.com" \
-      do-ip-update.sh
+Create a directory at `$XDG_DATA_HOME/do-ip-update`
 
-You should see a JSON of the payload that was sent to DO and a result
-with a `200 OK` response code and a JSON struct of the record data.
+Run the script normally.
