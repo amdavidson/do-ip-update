@@ -20,9 +20,9 @@ if [ "$IP_ADDRESS" != "$OLD_IP" ]; then
     if [ $? -eq 0 ]; then
         echo $IP_ADDRESS > $IP_PATH
         curl 'https://api.twilio.com/2010-04-01/Accounts/AC067e9cebbcfb3283e230a4539ab2990d/Messages.json' -X POST \
-            --data-urlencode 'To=+14082184455' \
-            --data-urlencode 'From=+12065905490' \
-            --data-urlencode "Body=$HOST: local.andr3w.net address changed to $IP_ADDRESS" \
+            --data-urlencode "To=$TWILIO_TO" \
+            --data-urlencode "From=$TWILIO_FROM" \
+            --data-urlencode "Body=$HOST: $DO_RECORD_ADDRESS address changed to $IP_ADDRESS" \
             -u $TWILIO_KEY
     fi
 else
