@@ -18,6 +18,12 @@ if [ "$IP_ADDRESS" != "$OLD_IP" ]; then
         "https://api.digitalocean.com/v2/domains/$DO_DOMAIN/records/$DO_RECORD_ID"
     echo ""
     if [ $? -eq 0 ]; then
+        echo $IP_ADDRESS > $IP_PATH
+        curl 'https://api.twilio.com/2010-04-01/Accounts/AC067e9cebbcfb3283e230a4539ab2990d/Messages.json' -X POST \
+            --data-urlencode 'To=+14082184455' \
+            --data-urlencode 'From=+12065905490' \
+            --data-urlencode "Body=$HOST: local.andr3w.net address changed to $IP_ADDRESS" \
+            -u $TWILIO_KEY
     fi
 else
     echo "IP address unchanged, $OLD_IP"
